@@ -23,7 +23,7 @@ public class Marketworld extends World
     
     public void setp1(){
         Player1 p1 = new Player1();
-        addObject(p1,400,150);
+        addObject(p1,400,200);
     }
     
     public void randomEnemys(){
