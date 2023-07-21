@@ -31,7 +31,7 @@ public class Marketworld extends World
     public void randomEnemies(){
         Random rand = new Random();
         
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 4; i++) {
             Virus1 v = new Virus1();
             addRandomObject(v, rand);
         }
@@ -40,7 +40,7 @@ public class Marketworld extends World
     public void randomSyringe(){
         Random rand = new Random();
     
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             Syringe s = new Syringe();
             addRandomObject(s, rand);
         }
