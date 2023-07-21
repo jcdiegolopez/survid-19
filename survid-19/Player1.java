@@ -17,7 +17,7 @@ public class Player1 extends Actor
     
     public Player1(){
         GreenfootImage image = getImage();
-        image.scale(40,40);
+        image.scale(30,40);
         setImage(image);
     }
     
