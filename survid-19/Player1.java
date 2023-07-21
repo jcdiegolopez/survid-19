@@ -21,16 +21,16 @@ public class Player1 extends Actor
     public void act()
     {
         if (Greenfoot.isKeyDown("w")){
-            setLocation(getX(),getY()-3);
+            setLocation(getX(),getY()-2);
         }
         if (Greenfoot.isKeyDown("s")){
-            setLocation(getX(),getY()+3);
+            setLocation(getX(),getY()+2);
         }
         if (Greenfoot.isKeyDown("d")){
-            setLocation(getX()+3,getY());
+            setLocation(getX()+2,getY());
         }
         if (Greenfoot.isKeyDown("a")){
-            setLocation(getX()-3,getY());
+            setLocation(getX()-2,getY());
         }
         
     }
