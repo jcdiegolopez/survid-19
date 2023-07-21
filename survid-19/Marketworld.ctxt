@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Marketworld
-comment0.text=\r\n\ \r\n
+comment0.text=\n\ \n
 comment1.params=
 comment1.target=Marketworld()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Marketworld.\r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Marketworld.\n
 comment2.params=
 comment2.target=void\ setp1()
 comment3.params=
@@ -12,10 +12,4 @@ comment4.params=
 comment4.target=void\ randomSyringe()
 comment5.params=object\ rand
 comment5.target=void\ addRandomObject(greenfoot.Actor,\ java.util.Random)
-comment6.params=
-comment6.target=void\ act()
-comment7.params=
-comment7.target=void\ movePlayerTowardsSyringe()
-comment8.params=
-comment8.target=Syringe\ findNearestSyringe()
-numComments=9
+numComments=6

@@ -31,7 +31,7 @@ public class Marketworld extends World
     public void randomEnemies(){
         Random rand = new Random();
         
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 2; i++) {
             Virus1 v = new Virus1();
             addRandomObject(v, rand);
         }
@@ -40,7 +40,7 @@ public class Marketworld extends World
     public void randomSyringe(){
         Random rand = new Random();
     
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             Syringe s = new Syringe();
             addRandomObject(s, rand);
         }
@@ -56,59 +56,6 @@ public class Marketworld extends World
         } while (getObjectsAt(x, y, Actor.class).size() > 0);
         
         addObject(object, x, y);
-    }
-    
-    // Act method for the Marketworld
-    public void act() {
-        ///movePlayerTowardsSyringe();
-    }
-    
-    private void movePlayerTowardsSyringe() {
-        Syringe nearestSyringe = findNearestSyringe();
-        if (nearestSyringe != null) {
-            int playerX = p1.getX();
-            int playerY = p1.getY();
-            int syringeX = nearestSyringe.getX();
-            int syringeY = nearestSyringe.getY();
-            int deltaX = syringeX - playerX;
-            int deltaY = syringeY - playerY;
-            
-            // Check if the player is close to the syringe
-            int distanceToSyringe = (int) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            if (distanceToSyringe > 5) {
-                int moveSpeed = 2;
-                int moveX = deltaX > 0 ? moveSpeed : -moveSpeed;
-                int moveY = deltaY > 0 ? moveSpeed : -moveSpeed;
-                p1.setLocation(playerX + moveX, playerY + moveY);
-            }
-        }
-    }
-    
-    private Syringe findNearestSyringe() {
-        List<Syringe> syringes = getObjects(Syringe.class);
-        if (syringes.isEmpty()) {
-            return null;
-        }
-        
-        int playerX = p1.getX();
-        int playerY = p1.getY();
-        
-        Syringe nearestSyringe = syringes.get(0);
-        int minDistance = Integer.MAX_VALUE;
-        
-        for (Syringe syringe : syringes) {
-            int syringeX = syringe.getX();
-            int syringeY = syringe.getY();
-            int deltaX = syringeX - playerX;
-            int deltaY = syringeY - playerY;
-            int distance = deltaX * deltaX + deltaY * deltaY;
-            if (distance < minDistance) {
-                minDistance = distance;
-                nearestSyringe = syringe;
-            }
-        }
-        
-        return nearestSyringe;
     }
 }
 
