@@ -28,6 +28,7 @@ public class Marketworld extends World
         SetFruits();
         SetDrinks();
         SetCashier();
+        SetMuffin();
     }
     
     public void setp1(){
@@ -159,6 +160,18 @@ public class Marketworld extends World
         for (int i = 0; i < CashierCoordinates.length; i++) {
             Cashier C = new Cashier();
             addObject(C, CashierCoordinates[i][0], CashierCoordinates[i][1]);
+        }
+    }
+    
+    public void SetMuffin(){
+        int[][] MuffinCoordinates = {
+            {49, 125},
+            {457, 125},
+        };
+        
+        for (int i = 0; i < MuffinCoordinates.length; i++) {
+            Muffin M = new Muffin();
+            addObject(M, MuffinCoordinates[i][0], MuffinCoordinates[i][1]);
         }
     }
 }
