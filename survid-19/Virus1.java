@@ -22,6 +22,27 @@ public class Virus1 extends Actor
     }
     public void act()
     {
-        // Add your action code here.
+        if(!getWorld().getObjects(Player1.class).isEmpty()){
+        Actor player1 = getWorld().getObjects(Player1.class).get(0);
+        Approach(player1);
+        }
+    }
+    
+    public void Approach (Actor p1){
+    
+        int playerX = p1.getX();
+        int playerY = p1.getY();
+        int virusX = getX();
+        int virusY = getY();
+        int deltaX = playerX - virusX;
+        int deltaY = playerY - virusY;
+        
+        
+        int moveSpeed = 1;
+        int moveX = deltaX > 0 ? moveSpeed : -moveSpeed;
+        int moveY = deltaY > 0 ? moveSpeed : -moveSpeed;
+        setLocation(virusX + moveX, virusY + moveY);
+        
+        
     }
 }

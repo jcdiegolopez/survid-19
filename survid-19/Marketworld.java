@@ -45,6 +45,8 @@ public class Marketworld extends World
         }
     }
     
+   
+    
     private void addRandomObject(Actor object, Random rand) {
         int x, y;
         do {
@@ -57,7 +59,7 @@ public class Marketworld extends World
     
     // Act method for the Marketworld
     public void act() {
-        movePlayerTowardsSyringe();
+        ///movePlayerTowardsSyringe();
     }
     
     private void movePlayerTowardsSyringe() {
