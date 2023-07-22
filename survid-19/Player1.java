@@ -17,7 +17,7 @@ public class Player1 extends Actor
     
     public Player1(){
         GreenfootImage image = getImage();
-        image.scale(30,40);
+        image.scale(15,25);
         setImage(image);
     }
     
@@ -25,18 +25,34 @@ public class Player1 extends Actor
     {
         if(this.alive == true){
             hitDetection();
+            
             if (Greenfoot.isKeyDown("w")){
-                setLocation(getX(),getY()-3);
+                if(wallDetection() == false){
+                    setLocation(getX(),getY()-3);
+                }
+                
             }
             if (Greenfoot.isKeyDown("s")){
-                setLocation(getX(),getY()+3);
+                if(wallDetection() == false){
+                    setLocation(getX(),getY()+3);
+                }
+                
             }
             if (Greenfoot.isKeyDown("d")){
-                setLocation(getX()+3,getY());
+                if(wallDetection() == false){
+                    setLocation(getX()+3,getY());
+                }
+                
+                
             }
             if (Greenfoot.isKeyDown("a")){
-                setLocation(getX()-3,getY());
+                if(wallDetection() == false){
+                    setLocation(getX()-3,getY());
+                }
+                
             }
+            
+            
         }else{
             World world = getWorld();
             Gameover over = new Gameover("gameover.png");
@@ -44,6 +60,26 @@ public class Player1 extends Actor
             world.addObject(over,300,200);
             world.addObject(filter,300,200);
         }
+        
+    }
+    
+    public boolean wallDetection(){
+        Actor w1 = getOneIntersectingObject(Cashier.class);
+        Actor w2 = getOneIntersectingObject(Drinks.class);
+        Actor w3 = getOneIntersectingObject(EastL.class);
+        Actor w4 = getOneIntersectingObject(Fruits.class);
+        Actor w5 = getOneIntersectingObject(Muffin.class);
+        Actor w6 = getOneIntersectingObject(NorthL.class);
+        Actor w7 = getOneIntersectingObject(Shelve.class);
+        Actor w8 = getOneIntersectingObject(SouthL.class);
+        Actor w9 = getOneIntersectingObject(WestL.class);
+        
+        if( w1!=null || w2!=null || w3!=null || w4!=null || w5!=null || w6!=null || w7!=null || w8!=null || w9!=null ){
+            return true;
+        }else{
+            return false;
+        }
+        
         
     }
     
