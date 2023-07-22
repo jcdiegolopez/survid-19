@@ -85,7 +85,7 @@ public class Marketworld extends World
     public void SetNorthL(){
         int[][] NorthLCoordinates = {
             {204, 70},
-            {600, 70},
+            {600, 70}
         };
         
         for (int i = 0; i < NorthLCoordinates.length; i++) {
@@ -97,7 +97,7 @@ public class Marketworld extends World
     public void SetSouthL(){
         int[][] SouthLCoordinates = {
             {204, 400},
-            {600, 400},
+            {600, 400}
         };
         
         for (int i = 0; i < SouthLCoordinates.length; i++) {
@@ -121,7 +121,7 @@ public class Marketworld extends World
             {49, 185},
             {49, 232},
             {457, 185},
-            {457, 232},
+            {457, 232}
         };
         
         for (int i = 0; i < FruitsCoordinates.length; i++) {
@@ -139,7 +139,7 @@ public class Marketworld extends World
             {456, 296},
             {456, 351},
             {529, 296},
-            {529, 351},
+            {529, 351}
         };
         
         for (int i = 0; i < DrinksCoordinates.length; i++) {
@@ -166,7 +166,7 @@ public class Marketworld extends World
     public void SetMuffin(){
         int[][] MuffinCoordinates = {
             {49, 125},
-            {457, 125},
+            {457, 125}
         };
         
         for (int i = 0; i < MuffinCoordinates.length; i++) {
