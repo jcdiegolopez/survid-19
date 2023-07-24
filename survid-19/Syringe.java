@@ -14,7 +14,7 @@ public class Syringe extends Actor
      */
     public Syringe(){
         GreenfootImage image = getImage();
-        image.scale(40,40);
+        image.scale(30,30);
         setImage(image);
     }
     public void act()

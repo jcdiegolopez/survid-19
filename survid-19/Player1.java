@@ -14,11 +14,11 @@ public class Player1 extends Actor
      */
     private boolean alive = true;
     private int health = 100;
-    private int speed = 3;
+    private int speed = 2;
     
     public Player1(){
         GreenfootImage image = getImage();
-        image.scale(15,25);
+        image.scale(12,17);
         setImage(image);
     }
     

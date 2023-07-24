@@ -18,8 +18,7 @@ public class Marketworld extends World
         super(600, 400, 1);
         setBackground("supermarket-scenario.png");
         setp1();
-        randomEnemies();
-        randomSyringe();
+        
         SetShelves();
         SetNorthL();
         SetSouthL();
@@ -29,6 +28,8 @@ public class Marketworld extends World
         SetDrinks();
         SetCashier();
         SetMuffin();
+        randomEnemies();
+        randomSyringe();
     }
     
     public void setp1(){
@@ -85,7 +86,7 @@ public class Marketworld extends World
     public void SetNorthL(){
         int[][] NorthLCoordinates = {
             {204, 70},
-            {600, 70}
+            {700, 70}
         };
         
         for (int i = 0; i < NorthLCoordinates.length; i++) {

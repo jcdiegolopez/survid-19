@@ -16,7 +16,7 @@ public class Virus1 extends Actor
     public Virus1(){
         setImage("e1.png");
         GreenfootImage image = getImage();
-        image.scale(25,25);
+        image.scale(20,20);
         setImage(image);
         
     }
