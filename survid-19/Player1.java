@@ -14,6 +14,7 @@ public class Player1 extends Actor
      */
     private boolean alive = true;
     private int health = 100;
+    private int speed = 3;
     
     public Player1(){
         GreenfootImage image = getImage();
@@ -24,35 +25,19 @@ public class Player1 extends Actor
     public void act()
     {
         if(this.alive == true){
-            hitDetection();
-            
-            if (Greenfoot.isKeyDown("w")){
-                if(wallDetection() == false){
-                    setLocation(getX(),getY()-3);
-                }
-                
+            hitDetection(); 
+            int dx = 0, dy = 0; 
+            if (Greenfoot.isKeyDown("w")) dy = -this.speed;
+            if (Greenfoot.isKeyDown("a")) dx = -this.speed;
+            if (Greenfoot.isKeyDown("s")) dy = this.speed;
+            if (Greenfoot.isKeyDown("d")) dx = this.speed;
+            setLocation(getX()+dx, getY()+dy);
+
+            if (wallDetection() == true)
+            {
+                setLocation(getX()-dx, getY()-dy);
             }
-            if (Greenfoot.isKeyDown("s")){
-                if(wallDetection() == false){
-                    setLocation(getX(),getY()+3);
-                }
-                
-            }
-            if (Greenfoot.isKeyDown("d")){
-                if(wallDetection() == false){
-                    setLocation(getX()+3,getY());
-                }
-                
-                
-            }
-            if (Greenfoot.isKeyDown("a")){
-                if(wallDetection() == false){
-                    setLocation(getX()-3,getY());
-                }
-                
-            }
-            
-            
+  
         }else{
             World world = getWorld();
             Gameover over = new Gameover("gameover.png");
