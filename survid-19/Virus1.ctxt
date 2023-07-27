@@ -8,4 +8,6 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=p1
 comment3.target=void\ Approach(greenfoot.Actor)
-numComments=4
+comment4.params=
+comment4.target=boolean\ wallDetection()
+numComments=5

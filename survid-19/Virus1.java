@@ -16,7 +16,7 @@ public class Virus1 extends Actor
     public Virus1(){
         setImage("e1.png");
         GreenfootImage image = getImage();
-        image.scale(20,20);
+        image.scale(15,15);
         setImage(image);
         
     }
@@ -27,6 +27,8 @@ public class Virus1 extends Actor
         Approach(player1);
         }
     }
+    
+    
     
     public void Approach (Actor p1){
     
@@ -39,9 +41,29 @@ public class Virus1 extends Actor
         
         
         int moveSpeed = 1;
-        int moveX = deltaX > 0 ? moveSpeed : -moveSpeed;
-        int moveY = deltaY > 0 ? moveSpeed : -moveSpeed;
+        int moveX = (deltaX > 0 || wallDetection()) ? moveSpeed : -moveSpeed;
+        int moveY = (deltaY > 0 || wallDetection()) ? moveSpeed : -moveSpeed;
         setLocation(virusX + moveX, virusY + moveY);
+        
+        
+    }
+    
+    public boolean wallDetection(){
+        Actor w1 = getOneIntersectingObject(Cashier.class);
+        Actor w2 = getOneIntersectingObject(Drinks.class);
+        Actor w3 = getOneIntersectingObject(EastL.class);
+        Actor w4 = getOneIntersectingObject(Fruits.class);
+        Actor w5 = getOneIntersectingObject(Muffin.class);
+        Actor w6 = getOneIntersectingObject(NorthL.class);
+        Actor w7 = getOneIntersectingObject(Shelve.class);
+        Actor w8 = getOneIntersectingObject(SouthL.class);
+        Actor w9 = getOneIntersectingObject(WestL.class);
+        
+        if( w1!=null || w2!=null || w3!=null || w4!=null || w5!=null || w6!=null || w7!=null || w8!=null || w9!=null ){
+            return true;
+        }else{
+            return false;
+        }
         
         
     }

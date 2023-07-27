@@ -9,6 +9,7 @@ import java.util.Random;
 public class Marketworld extends World
 {
     private Player1 p1;
+    private int lvl;
 
     /**
      * Constructor for objects of class Marketworld.
@@ -18,7 +19,7 @@ public class Marketworld extends World
         super(600, 400, 1);
         setBackground("supermarket-scenario.png");
         setp1();
-        
+        this.lvl = 1;
         SetShelves();
         SetNorthL();
         SetSouthL();
@@ -38,33 +39,41 @@ public class Marketworld extends World
         addObject(p1, 400, 200);
     }
     
-    public void randomEnemies(){
+    public void randomEnemies() {
+    Random rand = new Random();
+    int numberOfEnemies = 4;
+    placeRandomActors(Virus1.class, numberOfEnemies, rand);
+}
+
+    public void randomSyringe() {
         Random rand = new Random();
-        
-        for (int i = 0; i < 4; i++) {
-            Virus1 v = new Virus1();
-            addRandomObject(v, rand);
-        }
+        int numberOfSyringes = 3;
+        placeRandomActors(Syringe.class, numberOfSyringes, rand);
     }
-    
-    public void randomSyringe(){
-        Random rand = new Random();
-    
-        for (int i = 0; i < 3; i++) {
-            Syringe s = new Syringe();
-            addRandomObject(s, rand);
-        }
-    }
-    
-    private void addRandomObject(Actor object, Random rand) {
+
+    private void placeRandomActors(Class actorClass, int numActors, Random rand) {
+    int gridSize = 40; 
+    int worldWidth = getWidth();
+    int worldHeight = getHeight();
+    int numCols = worldWidth / gridSize;
+    int numRows = worldHeight / gridSize;
+
+    for (int i = 0; i < numActors; i++) {
         int x, y;
         do {
-            x = rand.nextInt(getWidth());
-            y = rand.nextInt(getHeight());
+            x = rand.nextInt(numCols) * gridSize + gridSize / 2;
+            y = rand.nextInt(numRows) * gridSize + gridSize / 2;
         } while (getObjectsAt(x, y, Actor.class).size() > 0);
-        
-        addObject(object, x, y);
+
+        try {
+            Actor actor = (Actor) actorClass.newInstance();
+            addObject(actor, x, y);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+}
+
 
     public void SetShelves(){
         int[][] shelveCoordinates = {
