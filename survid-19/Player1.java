@@ -15,6 +15,7 @@ public class Player1 extends Actor
     private boolean alive = true;
     private int health = 100;
     private int speed = 2;
+    private String currentDirection = "right";
     
     public Player1(){
         GreenfootImage image = getImage();
@@ -27,15 +28,27 @@ public class Player1 extends Actor
         if(this.alive == true){
             hitDetection(); 
             int dx = 0, dy = 0; 
-            if (Greenfoot.isKeyDown("w")) dy = -this.speed;
-            if (Greenfoot.isKeyDown("a")) dx = -this.speed;
+            if (Greenfoot.isKeyDown("w"))dy = -this.speed;
+            if (Greenfoot.isKeyDown("a")) {dx = -this.speed; this.currentDirection = "left"; }
             if (Greenfoot.isKeyDown("s")) dy = this.speed;
-            if (Greenfoot.isKeyDown("d")) dx = this.speed;
+            if (Greenfoot.isKeyDown("d")) {dx = this.speed; this.currentDirection = "right"; }
             setLocation(getX()+dx, getY()+dy);
 
             if (wallDetection() == true)
             {
                 setLocation(getX()-dx, getY()-dy);
+            }
+            
+            if (currentDirection.equals("left")) {
+                setImage("p1left.png");
+                GreenfootImage image = getImage();
+                image.scale(12,17);
+                setImage(image);
+            } else if (currentDirection.equals("right")) {
+                setImage("p1.png");
+                GreenfootImage image = getImage();
+                image.scale(12,17);
+                setImage(image);
             }
   
         }else{
