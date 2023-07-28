@@ -32,8 +32,7 @@ public class Player1 extends Actor
     
     public void act()
     {
-        GreenfootSound themeSound = new GreenfootSound("SuperMarket_Theme.wav");
-
+        
         if(this.alive == true){
             hitDetection(); 
             hitDetectionSyringe();
