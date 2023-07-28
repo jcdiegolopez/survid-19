@@ -9,14 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Menu extends World
 {
     Arrow arrow = new Arrow();
-    private int opcion = 0;
+    private int option = 0;
     /**
      * Constructor for objects of class Menu.
      * 
      */
     public Menu()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(550, 706, 1);
         addObject(new Play(), 275, 300);
         addObject(new Exit(), 275, 400);
@@ -27,24 +26,24 @@ public class Menu extends World
     }
     
     public void act(){
-        if (Greenfoot.isKeyDown("UP") && opcion !=0) {
-            opcion++;
+        if (Greenfoot.isKeyDown("UP") && option !=0) {
+            option++;
         }
-        if (Greenfoot.isKeyDown("DOWN") && opcion !=1) {
-            opcion--;
+        if (Greenfoot.isKeyDown("DOWN") && option !=1) {
+            option--;
         }
         
-        if (opcion>=2) opcion =0;
-        if (opcion<0) opcion = 1;
+        if (option>=2) option =0;
+        if (option<0) option = 1;
         
-        arrow.setLocation(130, 300 + (opcion * 100));
+        arrow.setLocation(130, 300 + (option * 100));
         
         if (Greenfoot.isKeyDown("SPACE") || Greenfoot.isKeyDown("ENTER")){
-            switch(opcion){
-                case 0: //Jugar
+            switch(option){
+                case 0:
                     Greenfoot.setWorld(new Marketworld());
                     break;
-                case 1: //Salir
+                case 1: 
                     Greenfoot.stop();
                     break;
                 

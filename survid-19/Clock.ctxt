@@ -4,6 +4,6 @@ comment1.params=
 comment1.target=Clock()
 comment2.params=
 comment2.target=void\ act()
-comment3.params=segundos
+comment3.params=seconds
 comment3.target=java.lang.String\ formatTime(long)
 numComments=4

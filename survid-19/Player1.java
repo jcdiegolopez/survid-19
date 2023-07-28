@@ -17,7 +17,6 @@ public class Player1 extends Actor
     private int health = 100;
     private int speed = 2;
     private String currentDirection = "right";
-    public int syringeCount = 0;
     private GreenfootSound themeSound;
     private boolean themePlaying;
     private int shotDelay  = 0;
@@ -25,6 +24,7 @@ public class Player1 extends Actor
     private boolean deathPlaying;
     private GreenfootSound syringeSound;
     private boolean syringePlaying;
+    private int syringeCount;
 
     public Player1(){
         GreenfootImage image = getImage();
@@ -35,6 +35,7 @@ public class Player1 extends Actor
         deathSound = new GreenfootSound("Death.wav");
         deathPlaying = false;
         syringeSound = new GreenfootSound("Syringe.wav");
+        syringeCount = 0;
     }
     
     public void act()
@@ -95,11 +96,11 @@ public class Player1 extends Actor
             if(myWorld!=null){
             if(level != myWorld.getLevel()){
                 myWorld.setLevel(level);
+                }
+                }
             }
-            }
-        }
     
-    }
+        }
     
     public boolean wallDetection(){
         Actor w1 = getOneIntersectingObject(Cashier.class);
@@ -131,7 +132,7 @@ public class Player1 extends Actor
            } 
     }
     
-    public void hitDetectionSyringe() {
+     public void hitDetectionSyringe() {
         if (isTouching(Syringe.class)) {
             removeTouching(Syringe.class);
             syringeCount++;
@@ -141,8 +142,12 @@ public class Player1 extends Actor
         }
     }
 
-     public int getSyringeCount() {
+    public int getSyringeCount() {
         return syringeCount;
+    }
+    
+    public void resetSyringeCount() {
+        syringeCount = 0;
     }
     
     public void playTheme() {
