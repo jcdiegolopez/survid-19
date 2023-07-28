@@ -40,29 +40,9 @@ public class Virus1 extends Actor
         
         
         int moveSpeed = 1;
-        int moveX = (deltaX > 0 || wallDetection()) ? moveSpeed : -moveSpeed;
-        int moveY = (deltaY > 0 || wallDetection()) ? moveSpeed : -moveSpeed;
+        int moveX = (deltaX > 0) ? moveSpeed : -moveSpeed;
+        int moveY = (deltaY > 0) ? moveSpeed : -moveSpeed;
         setLocation(virusX + moveX, virusY + moveY);
-        
-        
-    }
-    
-    public boolean wallDetection(){
-        Actor w1 = getOneIntersectingObject(Cashier.class);
-        Actor w2 = getOneIntersectingObject(Drinks.class);
-        Actor w3 = getOneIntersectingObject(EastL.class);
-        Actor w4 = getOneIntersectingObject(Fruits.class);
-        Actor w5 = getOneIntersectingObject(Muffin.class);
-        Actor w6 = getOneIntersectingObject(NorthL.class);
-        Actor w7 = getOneIntersectingObject(Shelve.class);
-        Actor w8 = getOneIntersectingObject(SouthL.class);
-        Actor w9 = getOneIntersectingObject(WestL.class);
-        
-        if( w1!=null || w2!=null || w3!=null || w4!=null || w5!=null || w6!=null || w7!=null || w8!=null || w9!=null ){
-            return true;
-        }else{
-            return false;
-        }
         
         
     }
