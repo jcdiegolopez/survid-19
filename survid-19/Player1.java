@@ -23,7 +23,8 @@ public class Player1 extends Actor
     private int shotDelay  = 0;
     private GreenfootSound deathSound;
     private boolean deathPlaying;
-    
+    private GreenfootSound syringeSound;
+    private boolean syringePlaying;
     public Player1(){
         GreenfootImage image = getImage();
         image.scale(12,17);
@@ -32,7 +33,7 @@ public class Player1 extends Actor
         themePlaying = false;
         deathSound = new GreenfootSound("Death.wav");
         deathPlaying = false;
-        
+        syringeSound = new GreenfootSound("Syringe.wav");
     }
     
     public void act()
@@ -135,6 +136,8 @@ public class Player1 extends Actor
             removeTouching(Syringe.class);
             syringeCount++;
             lvlPassed();
+            syringeTheme();
+            syringePlaying = false;
         }
     }
 
@@ -142,7 +145,7 @@ public class Player1 extends Actor
         return syringeCount;
     }
     
-        public void playTheme() {
+    public void playTheme() {
         if (!themePlaying) {
             themeSound.playLoop();
             themePlaying = true;
@@ -157,6 +160,13 @@ public class Player1 extends Actor
         if (!deathPlaying) {
             deathSound.play();
             deathPlaying = true;
+        }
+    }
+    
+    public void syringeTheme() {
+        if (!syringePlaying) {
+            syringeSound.play();
+            syringePlaying = true;
         }
     }
 }

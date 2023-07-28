@@ -12,7 +12,8 @@ public class Marketworld extends World
     private int lvl;
     private int numberOfEnemies;
     private boolean isThemePlaying = false;
-
+    private GreenfootSound levelSound;
+    private boolean levelPlaying;
 
     /**
      * Constructor for objects of class Marketworld.
@@ -35,6 +36,7 @@ public class Marketworld extends World
         SetMuffin();
         randomEnemies();
         randomSyringe();
+        levelSound = new GreenfootSound("Levelup.wav");
     }
     
     public void setLevel(int lvl){
@@ -42,6 +44,8 @@ public class Marketworld extends World
         this.numberOfEnemies += 2;
         randomEnemies();
         randomSyringe();
+        levelTheme();
+        levelPlaying = false;
     }
     
     public int getLevel(){
@@ -63,7 +67,6 @@ public class Marketworld extends World
         int numberOfSyringes = 10;
         placeRandomActors(Syringe.class, numberOfSyringes, rand);
     }
-    
     
     private void placeRandomActorsOnEdges(Class actorClass, int numActors, Random rand) {
     int gridSize = 40; 
@@ -106,10 +109,8 @@ public class Marketworld extends World
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-}
+    }}
 
-    
     private void placeRandomActors(Class actorClass, int numActors, Random rand) {
     int gridSize = 40; 
     int worldWidth = getWidth();
@@ -240,6 +241,13 @@ public class Marketworld extends World
         for (int i = 0; i < MuffinCoordinates.length; i++) {
             Muffin M = new Muffin();
             addObject(M, MuffinCoordinates[i][0], MuffinCoordinates[i][1]);
+        }
+    }
+    
+        public void levelTheme() {
+        if (!levelPlaying) {
+            levelSound.play();
+            levelPlaying = true;
         }
     }
 }
