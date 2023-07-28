@@ -37,6 +37,7 @@ public class Marketworld extends World
         randomEnemies();
         randomSyringe();
         levelSound = new GreenfootSound("Levelup.wav");
+        clock();
     }
     
     public void setLevel(int lvl){
@@ -183,6 +184,11 @@ public class Marketworld extends World
     public void SetWestL(){
         WestL E1 = new WestL();
         addObject(E1, 0, 247);
+    }
+    
+    public void clock(){
+        Clock Cl1 = new Clock();
+        addObject(Cl1, 470, 25);
     }
     
     public void SetFruits(){

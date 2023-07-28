@@ -25,6 +25,7 @@ public class Player1 extends Actor
     private boolean deathPlaying;
     private GreenfootSound syringeSound;
     private boolean syringePlaying;
+
     public Player1(){
         GreenfootImage image = getImage();
         image.scale(12,17);
@@ -38,7 +39,6 @@ public class Player1 extends Actor
     
     public void act()
     {
-        
         if(this.alive == true){
             hitDetection(); 
             hitDetectionSyringe();
