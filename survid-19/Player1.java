@@ -17,18 +17,26 @@ public class Player1 extends Actor
     private int speed = 2;
     private String currentDirection = "right";
     public int syringeCount = 0;
+    private GreenfootSound themeSound;
+    private boolean themePlaying;
     
     public Player1(){
         GreenfootImage image = getImage();
         image.scale(12,17);
         setImage(image);
+        themeSound = new GreenfootSound("SuperMarket_Theme.wav");
+        themePlaying = false;
     }
     
     public void act()
     {
+        GreenfootSound themeSound = new GreenfootSound("SuperMarket_Theme.wav");
+
         if(this.alive == true){
             hitDetection(); 
             hitDetectionSyringe();
+            playTheme();
+    
             int dx = 0, dy = 0; 
             if (Greenfoot.isKeyDown("w"))dy = -this.speed;
             if (Greenfoot.isKeyDown("a")) {dx = -this.speed; this.currentDirection = "left"; }
@@ -60,8 +68,8 @@ public class Player1 extends Actor
             Blackwhite filter = new Blackwhite("bwfilter.png");
             world.addObject(over,300,200);
             world.addObject(filter,300,200);
+            stopTheme();
         }
-        
     }
     
     public boolean wallDetection(){
@@ -105,5 +113,16 @@ public class Player1 extends Actor
 
      public int getSyringeCount() {
         return syringeCount;
+    }
+    
+        public void playTheme() {
+        if (!themePlaying) {
+            themeSound.playLoop();
+            themePlaying = true;
+        }
+    }
+
+    public void stopTheme() {
+        themeSound.stop();
     }
 }

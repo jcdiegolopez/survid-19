@@ -10,6 +10,8 @@ public class Marketworld extends World
 {
     private Player1 p1;
     private int lvl;
+    private boolean isThemePlaying = false;
+
 
     /**
      * Constructor for objects of class Marketworld.
@@ -34,7 +36,6 @@ public class Marketworld extends World
     }
     
     public void setp1(){
-
         p1 = new Player1();
         addObject(p1, 400, 200);
     }
@@ -73,7 +74,6 @@ public class Marketworld extends World
         }
     }
     }
-
 
     public void SetShelves(){
         int[][] shelveCoordinates = {
