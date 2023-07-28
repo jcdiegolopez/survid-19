@@ -19,6 +19,7 @@ public class Player1 extends Actor
     public int syringeCount = 0;
     private GreenfootSound themeSound;
     private boolean themePlaying;
+    private int shotDelay  = 0;
     
     public Player1(){
         GreenfootImage image = getImage();
@@ -26,6 +27,7 @@ public class Player1 extends Actor
         setImage(image);
         themeSound = new GreenfootSound("SuperMarket_Theme.wav");
         themePlaying = false;
+        
     }
     
     public void act()
@@ -37,7 +39,16 @@ public class Player1 extends Actor
             hitDetectionSyringe();
             playTheme();
     
-            int dx = 0, dy = 0; 
+            int dx = 0, dy = 0;
+            if (this.shotDelay > 0) this.shotDelay--;
+            if(Greenfoot.isKeyDown("space") && this.shotDelay == 0) { 
+                int p1x = getX();
+                int p1y = getY();
+                Proyectile p = new Proyectile(this.currentDirection);
+                getWorld().addObject(p,p1x,p1y);
+                this.shotDelay = 30;
+            }
+            
             if (Greenfoot.isKeyDown("w"))dy = -this.speed;
             if (Greenfoot.isKeyDown("a")) {dx = -this.speed; this.currentDirection = "left"; }
             if (Greenfoot.isKeyDown("s")) dy = this.speed;
