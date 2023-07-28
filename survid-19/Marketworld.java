@@ -10,6 +10,7 @@ public class Marketworld extends World
 {
     private Player1 p1;
     private int lvl;
+    private int numberOfEnemies;
     private boolean isThemePlaying = false;
 
 
@@ -22,6 +23,7 @@ public class Marketworld extends World
         setBackground("supermarket-scenario.png");
         setp1();
         this.lvl = 1;
+        this.numberOfEnemies = 3;
         SetShelves();
         SetNorthL();
         SetSouthL();
@@ -35,6 +37,11 @@ public class Marketworld extends World
         randomSyringe();
     }
     
+    public void setLevel(int lvl){
+        this.lvl = lvl;
+        this.numberOfEnemies *= (int)1.5; 
+    }
+    
     public void setp1(){
         p1 = new Player1();
         addObject(p1, 400, 200);
@@ -42,8 +49,7 @@ public class Marketworld extends World
     
     public void randomEnemies() {
     Random rand = new Random();
-    int numberOfEnemies = 4;
-    placeRandomActors(Virus1.class, numberOfEnemies, rand);
+    placeRandomActors(Virus1.class, this.numberOfEnemies, rand);
     }
 
     public void randomSyringe() {
