@@ -16,6 +16,7 @@ public class Player1 extends Actor
     private int health = 100;
     private int speed = 2;
     private String currentDirection = "right";
+    public int syringeCount = 0;
     
     public Player1(){
         GreenfootImage image = getImage();
@@ -27,6 +28,7 @@ public class Player1 extends Actor
     {
         if(this.alive == true){
             hitDetection(); 
+            hitDetectionSyringe();
             int dx = 0, dy = 0; 
             if (Greenfoot.isKeyDown("w"))dy = -this.speed;
             if (Greenfoot.isKeyDown("a")) {dx = -this.speed; this.currentDirection = "left"; }
@@ -50,7 +52,8 @@ public class Player1 extends Actor
                 image.scale(12,17);
                 setImage(image);
             }
-  
+            World world = getWorld();
+            world.showText("Score: " + syringeCount, 50, 25);
         }else{
             World world = getWorld();
             Gameover over = new Gameover("gameover.png");
@@ -91,5 +94,16 @@ public class Player1 extends Actor
                this.alive = false;
             }
            } 
+    }
+    
+    public void hitDetectionSyringe() {
+        if (isTouching(Syringe.class)) {
+            removeTouching(Syringe.class);
+            syringeCount++;
+        }
+    }
+
+     public int getSyringeCount() {
+        return syringeCount;
     }
 }

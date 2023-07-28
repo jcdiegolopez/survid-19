@@ -43,11 +43,11 @@ public class Marketworld extends World
     Random rand = new Random();
     int numberOfEnemies = 4;
     placeRandomActors(Virus1.class, numberOfEnemies, rand);
-}
+    }
 
     public void randomSyringe() {
         Random rand = new Random();
-        int numberOfSyringes = 3;
+        int numberOfSyringes = 10;
         placeRandomActors(Syringe.class, numberOfSyringes, rand);
     }
 
@@ -72,7 +72,7 @@ public class Marketworld extends World
             e.printStackTrace();
         }
     }
-}
+    }
 
 
     public void SetShelves(){
@@ -94,8 +94,8 @@ public class Marketworld extends World
     
     public void SetNorthL(){
         int[][] NorthLCoordinates = {
-            {204, 70},
-            {700, 70}
+            {204, 35},
+            {780, 39}
         };
         
         for (int i = 0; i < NorthLCoordinates.length; i++) {

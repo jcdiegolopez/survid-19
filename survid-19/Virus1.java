@@ -20,6 +20,7 @@ public class Virus1 extends Actor
         setImage(image);
         
     }
+    
     public void act()
     {
         if(!getWorld().getObjects(Player1.class).isEmpty()){
@@ -27,8 +28,6 @@ public class Virus1 extends Actor
         Approach(player1);
         }
     }
-    
-    
     
     public void Approach (Actor p1){
     
