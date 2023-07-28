@@ -15,10 +15,13 @@ public class Proyectile extends Actor
     private String direction;
     private int movement = 4;
     private boolean exist = true;
-    
+    private GreenfootSound laserSound;
+    private boolean laserPlaying;
     public Proyectile(String direction){
         this.direction = direction;
         setImageDir();
+        laserSound = new GreenfootSound("Laser.mp3");
+        laserPlaying = false;
     }
     
     public void setImageDir(){
@@ -51,6 +54,7 @@ public class Proyectile extends Actor
     public void act()
     {
         if(this.exist){
+        playLaser();
         
         if(this.direction == "right")  setLocation(getX() + this.movement, getY());
         if(this.direction == "left")  setLocation(getX() - this.movement, getY());
@@ -95,6 +99,17 @@ public class Proyectile extends Actor
             return false;
         }
         
+    }
+    
         
+        public void playLaser() {
+        if (!laserPlaying) {
+            laserSound.play();
+            laserPlaying = true;
+        }
+    }
+
+    public void stopTheme() {
+        laserSound.stop();
     }
 }

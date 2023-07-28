@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Marketworld
-comment0.text=\r\n\ \r\n
+comment0.text=\n\ \n
 comment1.params=
 comment1.target=Marketworld()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Marketworld.\r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Marketworld.\n
 comment10.params=
 comment10.target=void\ SetNorthL()
 comment11.params=

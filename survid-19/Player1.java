@@ -21,6 +21,8 @@ public class Player1 extends Actor
     private GreenfootSound themeSound;
     private boolean themePlaying;
     private int shotDelay  = 0;
+    private GreenfootSound deathSound;
+    private boolean deathPlaying;
     
     public Player1(){
         GreenfootImage image = getImage();
@@ -28,6 +30,8 @@ public class Player1 extends Actor
         setImage(image);
         themeSound = new GreenfootSound("SuperMarket_Theme.wav");
         themePlaying = false;
+        deathSound = new GreenfootSound("Death.mp3");
+        deathPlaying = false;
         
     }
     
@@ -37,8 +41,7 @@ public class Player1 extends Actor
         if(this.alive == true){
             hitDetection(); 
             hitDetectionSyringe();
-            playTheme();
-    
+            playTheme();    
             int dx = 0, dy = 0;
             if (this.shotDelay > 0) this.shotDelay--;
             if(Greenfoot.isKeyDown("space") && this.shotDelay == 0) { 
@@ -80,6 +83,7 @@ public class Player1 extends Actor
             world.addObject(over,300,200);
             world.addObject(filter,300,200);
             stopTheme();
+            deathTheme();
         }
     }
     
@@ -92,8 +96,6 @@ public class Player1 extends Actor
                 myWorld.setLevel(level);
             }
             }
-            
-            
         }
     
     }
@@ -114,8 +116,6 @@ public class Player1 extends Actor
         }else{
             return false;
         }
-        
-        
     }
     
     public void hitDetection(){ 
@@ -151,5 +151,12 @@ public class Player1 extends Actor
 
     public void stopTheme() {
         themeSound.stop();
+    }
+    
+    public void deathTheme() {
+        if (!deathPlaying) {
+            deathSound.playLoop();
+            deathPlaying = true;
+        }
     }
 }
