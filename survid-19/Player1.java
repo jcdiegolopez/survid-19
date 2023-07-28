@@ -30,7 +30,7 @@ public class Player1 extends Actor
         GreenfootImage image = getImage();
         image.scale(12,17);
         setImage(image);
-        themeSound = new GreenfootSound("SuperMarket_Theme.wav");
+        themeSound = new GreenfootSound("Jeepeta.wav");
         themePlaying = false;
         deathSound = new GreenfootSound("Death.wav");
         deathPlaying = false;
@@ -96,7 +96,7 @@ public class Player1 extends Actor
             if(myWorld!=null){
             if(level != myWorld.getLevel()){
                 myWorld.setLevel(level);
-                }
+                    }
                 }
             }
     
