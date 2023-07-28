@@ -22,7 +22,7 @@ public class Marketworld extends World
         super(600, 400, 1);
         setBackground("supermarket-scenario.png");
         setp1();
-        this.lvl = 1;
+        this.lvl = 0;
         this.numberOfEnemies = 3;
         SetShelves();
         SetNorthL();
@@ -39,7 +39,13 @@ public class Marketworld extends World
     
     public void setLevel(int lvl){
         this.lvl = lvl;
-        this.numberOfEnemies *= (int)1.5; 
+        this.numberOfEnemies += 2;
+        randomEnemies();
+        randomSyringe();
+    }
+    
+    public int getLevel(){
+        return this.lvl;
     }
     
     public void setp1(){

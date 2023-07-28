@@ -83,6 +83,21 @@ public class Player1 extends Actor
         }
     }
     
+    public void lvlPassed(){
+        if(this.syringeCount % 10 == 0){
+            int level = (int) this.syringeCount/10;
+            Marketworld myWorld = (Marketworld) getWorld();
+            if(myWorld!=null){
+            if(level != myWorld.getLevel()){
+                myWorld.setLevel(level);
+            }
+            }
+            
+            
+        }
+    
+    }
+    
     public boolean wallDetection(){
         Actor w1 = getOneIntersectingObject(Cashier.class);
         Actor w2 = getOneIntersectingObject(Drinks.class);
@@ -119,6 +134,7 @@ public class Player1 extends Actor
         if (isTouching(Syringe.class)) {
             removeTouching(Syringe.class);
             syringeCount++;
+            lvlPassed();
         }
     }
 
