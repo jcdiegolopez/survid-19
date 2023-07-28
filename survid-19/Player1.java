@@ -30,7 +30,7 @@ public class Player1 extends Actor
         setImage(image);
         themeSound = new GreenfootSound("SuperMarket_Theme.wav");
         themePlaying = false;
-        deathSound = new GreenfootSound("Death.mp3");
+        deathSound = new GreenfootSound("Death.wav");
         deathPlaying = false;
         
     }
@@ -155,7 +155,7 @@ public class Player1 extends Actor
     
     public void deathTheme() {
         if (!deathPlaying) {
-            deathSound.playLoop();
+            deathSound.play();
             deathPlaying = true;
         }
     }

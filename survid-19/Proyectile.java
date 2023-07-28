@@ -20,7 +20,7 @@ public class Proyectile extends Actor
     public Proyectile(String direction){
         this.direction = direction;
         setImageDir();
-        laserSound = new GreenfootSound("Laser.mp3");
+        laserSound = new GreenfootSound("Laser.wav");
         laserPlaying = false;
     }
     
