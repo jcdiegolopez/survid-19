@@ -27,12 +27,26 @@ public class Proyectile extends Actor
             GreenfootImage image = getImage();
             image.scale(12,7);
             setImage(image);
-        }else{
+        }
+        if(this.direction.equals("left")){
             setImage("proyectileL.png");
             GreenfootImage image = getImage();
             image.scale(12,7);
             setImage(image);
         }
+        if(this.direction.equals("up")){
+            setImage("proyectileup.png");
+            GreenfootImage image = getImage();
+            image.scale(7,12);
+            setImage(image);
+        }
+        if(this.direction.equals("down")){
+            setImage("proyectiledown.png");
+            GreenfootImage image = getImage();
+            image.scale(7,12);
+            setImage(image);
+        }
+        
     }
     public void act()
     {
@@ -40,6 +54,8 @@ public class Proyectile extends Actor
         
         if(this.direction == "right")  setLocation(getX() + this.movement, getY());
         if(this.direction == "left")  setLocation(getX() - this.movement, getY());
+        if(this.direction == "up")  setLocation(getX(), getY()-this.movement);
+        if(this.direction == "down")  setLocation(getX(), getY()+this.movement);
         hitDetection();
     }
     }

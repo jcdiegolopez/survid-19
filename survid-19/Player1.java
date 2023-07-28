@@ -49,9 +49,9 @@ public class Player1 extends Actor
                 this.shotDelay = 30;
             }
             
-            if (Greenfoot.isKeyDown("w"))dy = -this.speed;
+            if (Greenfoot.isKeyDown("w")){dy = -this.speed;this.currentDirection = "up";}
             if (Greenfoot.isKeyDown("a")) {dx = -this.speed; this.currentDirection = "left"; }
-            if (Greenfoot.isKeyDown("s")) dy = this.speed;
+            if (Greenfoot.isKeyDown("s")) {dy = this.speed;this.currentDirection = "down";}
             if (Greenfoot.isKeyDown("d")) {dx = this.speed; this.currentDirection = "right"; }
             setLocation(getX()+dx, getY()+dy);
 

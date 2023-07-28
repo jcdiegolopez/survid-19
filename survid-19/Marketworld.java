@@ -55,7 +55,7 @@ public class Marketworld extends World
     
     public void randomEnemies() {
     Random rand = new Random();
-    placeRandomActors(Virus1.class, this.numberOfEnemies, rand);
+    placeRandomActorsOnEdges(Virus1.class, this.numberOfEnemies, rand);
     }
 
     public void randomSyringe() {
@@ -63,7 +63,53 @@ public class Marketworld extends World
         int numberOfSyringes = 10;
         placeRandomActors(Syringe.class, numberOfSyringes, rand);
     }
+    
+    
+    private void placeRandomActorsOnEdges(Class actorClass, int numActors, Random rand) {
+    int gridSize = 40; 
+    int worldWidth = getWidth();
+    int worldHeight = getHeight();
+    int numCols = worldWidth / gridSize;
+    int numRows = worldHeight / gridSize;
 
+    for (int i = 0; i < numActors; i++) {
+        int x, y;
+        // Determine on which edge to place the actor (0: top, 1: right, 2: bottom, 3: left)
+        int edge = rand.nextInt(4);
+
+        switch (edge) {
+            case 0: // Top edge
+                x = rand.nextInt(numCols) * gridSize + gridSize / 2;
+                y = gridSize / 2;
+                break;
+            case 1: // Right edge
+                x = worldWidth - gridSize / 2;
+                y = rand.nextInt(numRows) * gridSize + gridSize / 2;
+                break;
+            case 2: // Bottom edge
+                x = rand.nextInt(numCols) * gridSize + gridSize / 2;
+                y = worldHeight - gridSize / 2;
+                break;
+            case 3: // Left edge
+                x = gridSize / 2;
+                y = rand.nextInt(numRows) * gridSize + gridSize / 2;
+                break;
+            default:
+                x = rand.nextInt(numCols) * gridSize + gridSize / 2;
+                y = rand.nextInt(numRows) * gridSize + gridSize / 2;
+                break;
+        }
+
+        try {
+            Actor actor = (Actor) actorClass.newInstance();
+            addObject(actor, x, y);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+    
     private void placeRandomActors(Class actorClass, int numActors, Random rand) {
     int gridSize = 40; 
     int worldWidth = getWidth();
