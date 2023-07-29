@@ -25,6 +25,9 @@ public class Player1 extends Actor
     private GreenfootSound syringeSound;
     private boolean syringePlaying;
     private int syringeCount;
+    private boolean gameOver = false;
+    private long startTime = System.currentTimeMillis();
+    
 
     public Player1(){
         GreenfootImage image = getImage();
@@ -36,6 +39,7 @@ public class Player1 extends Actor
         deathPlaying = false;
         syringeSound = new GreenfootSound("Syringe.wav");
         syringeCount = 0;
+        
     }
     
     public void act()
@@ -79,13 +83,23 @@ public class Player1 extends Actor
             World world = getWorld();
             world.showText("Score: " + syringeCount, 50, 25);
         }else{
+            if(!this.gameOver){
             World world = getWorld();
-            Gameover over = new Gameover("gameover.png");
+            
             Blackwhite filter = new Blackwhite("bwfilter.png");
-            world.addObject(over,300,200);
+            Blackwhite filter2 = new Blackwhite("bfilter.png");
+            Gameover over = new Gameover("gameover.png");
+            world.addObject(filter2,300,200);
             world.addObject(filter,300,200);
+            world.addObject(over,300,200);
+            world.showText("TU PUNTAJE: " + syringeCount, 300, 300);
+            int elapsedTime = (int) (System.currentTimeMillis() - this.startTime)/1000;
+            world.showText("TU TIEMPO: " + elapsedTime + ((elapsedTime !=1)?" segundos" : " segundo"), 300, 270);
             stopTheme();
             deathTheme();
+            this.gameOver = true;
+            
+        }
         }
     }
     

@@ -14,6 +14,7 @@ public class Marketworld extends World
     private boolean isThemePlaying = false;
     private GreenfootSound levelSound;
     private boolean levelPlaying;
+    private Clock Cl1;
 
     /**
      * Constructor for objects of class Marketworld.
@@ -187,8 +188,12 @@ public class Marketworld extends World
     }
     
     public void clock(){
-        Clock Cl1 = new Clock();
+        this.Cl1 = new Clock();
         addObject(Cl1, 470, 25);
+    }
+    
+    public Clock getClock(){
+        return this.Cl1;
     }
     
     public void SetFruits(){
