@@ -44,6 +44,11 @@ public class Marketworld extends World
     public void setLevel(int lvl){
         this.lvl = lvl;
         this.numberOfEnemies += 2;
+        List<Virus1> viruss = getObjects(Virus1.class);
+        if (viruss != null) {
+            for(Virus1 virus : viruss){removeObject(virus);}
+            
+        }
         randomEnemies();
         randomSyringe();
         levelTheme();
@@ -66,7 +71,7 @@ public class Marketworld extends World
 
     public void randomSyringe() {
         Random rand = new Random();
-        int numberOfSyringes = 10;
+        int numberOfSyringes = 5;
         placeRandomActors(Syringe.class, numberOfSyringes, rand);
     }
     
@@ -79,7 +84,6 @@ public class Marketworld extends World
 
     for (int i = 0; i < numActors; i++) {
         int x, y;
-        // Determine on which edge to place the actor (0: top, 1: right, 2: bottom, 3: left)
         int edge = rand.nextInt(4);
 
         switch (edge) {

@@ -33,7 +33,7 @@ public class Player1 extends Actor
         GreenfootImage image = getImage();
         image.scale(12,17);
         setImage(image);
-        themeSound = new GreenfootSound("Jeepeta.wav");
+        themeSound = new GreenfootSound("SuperMarket_Theme.wav");
         themePlaying = false;
         deathSound = new GreenfootSound("Death.wav");
         deathPlaying = false;
@@ -104,8 +104,8 @@ public class Player1 extends Actor
     }
     
     public void lvlPassed(){
-        if(this.syringeCount % 10 == 0){
-            int level = (int) this.syringeCount/10;
+        if(this.syringeCount % 5 == 0){
+            int level = (int) this.syringeCount/5;
             Marketworld myWorld = (Marketworld) getWorld();
             if(myWorld!=null){
             if(level != myWorld.getLevel()){
