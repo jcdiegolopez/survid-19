@@ -94,7 +94,9 @@ public class Player1 extends Actor
             world.addObject(over,300,200);
             world.showText("TU PUNTAJE: " + syringeCount, 300, 300);
             int elapsedTime = (int) (System.currentTimeMillis() - this.startTime)/1000;
-            world.showText("TU TIEMPO: " + elapsedTime + ((elapsedTime !=1)?" segundos" : " segundo"), 300, 270);
+            int minutes = (int) elapsedTime / 60;
+            int seconds = elapsedTime % 60;
+            world.showText("TU TIEMPO: " + minutes + ((minutes !=1)?" minutos " : " minuto ") + "y "+ seconds + ((seconds !=1)?" segundos" : " segundo"), 300, 270);
             stopTheme();
             deathTheme();
             this.gameOver = true;
