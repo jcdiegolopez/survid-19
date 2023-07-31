@@ -87,19 +87,19 @@ public class Marketworld extends World
         int edge = rand.nextInt(4);
 
         switch (edge) {
-            case 0: // Top edge
+            case 0: 
                 x = rand.nextInt(numCols) * gridSize + gridSize / 2;
                 y = gridSize / 2;
                 break;
-            case 1: // Right edge
+            case 1: 
                 x = worldWidth - gridSize / 2;
                 y = rand.nextInt(numRows) * gridSize + gridSize / 2;
                 break;
-            case 2: // Bottom edge
+            case 2: 
                 x = rand.nextInt(numCols) * gridSize + gridSize / 2;
                 y = worldHeight - gridSize / 2;
                 break;
-            case 3: // Left edge
+            case 3:
                 x = gridSize / 2;
                 y = rand.nextInt(numRows) * gridSize + gridSize / 2;
                 break;
