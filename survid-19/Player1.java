@@ -82,10 +82,10 @@ public class Player1 extends Actor
             }
             World world = getWorld();
             world.showText("Score: " + syringeCount, 50, 25);
+            world.showText("Level: " + syringeCount/5, 290, 25);
         }else{
             if(!this.gameOver){
             World world = getWorld();
-            
             Blackwhite filter = new Blackwhite("bwfilter.png");
             Blackwhite filter2 = new Blackwhite("bfilter.png");
             Gameover over = new Gameover("gameover.png");
@@ -93,6 +93,7 @@ public class Player1 extends Actor
             world.addObject(filter,300,200);
             world.addObject(over,300,200);
             world.showText("TU PUNTAJE: " + syringeCount, 300, 300);
+            world.showText("NIVEL: " + syringeCount/5, 300, 330);
             int elapsedTime = (int) (System.currentTimeMillis() - this.startTime)/1000;
             int minutes = (int) elapsedTime / 60;
             int seconds = elapsedTime % 60;

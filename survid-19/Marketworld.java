@@ -193,7 +193,7 @@ public class Marketworld extends World
     
     public void clock(){
         this.Cl1 = new Clock();
-        addObject(Cl1, 470, 25);
+        addObject(Cl1, 450, 25);
     }
     
     public Clock getClock(){
