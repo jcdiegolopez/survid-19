@@ -20,6 +20,7 @@ public class Menu extends World
         addObject(new Play(), 275, 300);
         addObject(new Exit(), 275, 400);
         addObject(arrow, 130, 300);
+        addObject(new Logo(),280,160);
     }
     
     public void act(){
