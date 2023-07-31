@@ -21,15 +21,12 @@ public class Menu extends World
         addObject(new Exit(), 275, 400);
         addObject(arrow, 130, 300);
     }
-    public void prepararMundo(){
-        
-    }
     
     public void act(){
-        if (Greenfoot.isKeyDown("UP") && option !=0) {
+        if (Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("UP") && option !=0) {
             option++;
         }
-        if (Greenfoot.isKeyDown("DOWN") && option !=1) {
+        if (Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("DOWN") && option !=1) {
             option--;
         }
         

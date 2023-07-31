@@ -58,10 +58,10 @@ public class Player1 extends Actor
                 this.shotDelay = 30;
             }
             
-            if (Greenfoot.isKeyDown("w")){dy = -this.speed;this.currentDirection = "up";}
-            if (Greenfoot.isKeyDown("a")) {dx = -this.speed; this.currentDirection = "left"; }
-            if (Greenfoot.isKeyDown("s")) {dy = this.speed;this.currentDirection = "down";}
-            if (Greenfoot.isKeyDown("d")) {dx = this.speed; this.currentDirection = "right"; }
+            if (Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("UP")) {dy = -this.speed;this.currentDirection = "up";}
+            if (Greenfoot.isKeyDown("a")|| Greenfoot.isKeyDown("LEFT")) {dx = -this.speed; this.currentDirection = "left"; }
+            if (Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("DOWN")) {dy = this.speed;this.currentDirection = "down";}
+            if (Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("RIGHT")) {dx = this.speed; this.currentDirection = "right"; }
             setLocation(getX()+dx, getY()+dy);
 
             if (wallDetection() == true)
@@ -100,8 +100,7 @@ public class Player1 extends Actor
             stopTheme();
             deathTheme();
             this.gameOver = true;
-            
-        }
+            }
         }
     }
     
